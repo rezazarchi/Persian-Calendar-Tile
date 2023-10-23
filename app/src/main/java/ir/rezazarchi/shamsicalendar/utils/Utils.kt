@@ -1,5 +1,6 @@
 package ir.rezazarchi.shamsicalendar.utils
 
+import android.graphics.Color
 import io.github.persiancalendar.calendar.CivilDate
 import io.github.persiancalendar.calendar.PersianDate
 import ir.rezazarchi.shamsicalendar.utils.PersianDateItems.persianMonthsArray
@@ -23,6 +24,16 @@ object Utils {
         dateText.append(" ${persianMonthsArray[persianCal.month - 1]} ")
         dateText.append(persianCal.year)
         return dateText.toString().toPersianNumbers()
+    }
+
+    fun getCurrentDayColor(): Int {
+        val calendar = Calendar.getInstance()
+        val dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK)
+        return if (dayOfWeek == Calendar.FRIDAY) {
+            Color.RED
+        } else {
+            Color.WHITE
+        }
     }
 
     private fun String.toPersianNumbers(): String {

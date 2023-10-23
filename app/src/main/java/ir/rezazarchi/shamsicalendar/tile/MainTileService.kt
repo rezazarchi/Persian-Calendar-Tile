@@ -1,5 +1,6 @@
 package ir.rezazarchi.shamsicalendar.tile
 
+import androidx.wear.protolayout.ColorBuilders.argb
 import androidx.wear.protolayout.DimensionBuilders.expand
 import androidx.wear.protolayout.DimensionBuilders.wrap
 import androidx.wear.protolayout.LayoutElementBuilders
@@ -14,6 +15,7 @@ import androidx.wear.tiles.TileBuilders.Tile
 import androidx.wear.tiles.TileService
 import com.google.common.util.concurrent.Futures
 import com.google.common.util.concurrent.ListenableFuture
+import ir.rezazarchi.shamsicalendar.utils.Utils.getCurrentDayColor
 import ir.rezazarchi.shamsicalendar.utils.Utils.getFullJalaliDateString
 
 private const val RESOURCES_VERSION = "1"
@@ -42,6 +44,7 @@ class MainTileService : TileService() {
                                     Text.Builder(applicationContext, getFullJalaliDateString())
                                         .setMaxLines(2)
                                         .setTypography(Typography.TYPOGRAPHY_DISPLAY3)
+                                        .setColor(argb(getCurrentDayColor()))
                                         .build()
                                 )
                             }
