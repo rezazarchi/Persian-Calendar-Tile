@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Shamsi Calendar</string>
+    <string name="tile_label">تقویم هجری شمسی</string>
+    <string name="complication_label">Shamsi calendar complication</string>
+</resources>
