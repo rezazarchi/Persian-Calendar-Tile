@@ -12,8 +12,8 @@ android {
         applicationId = "ir.rezazarchi.shamsicalendar"
         minSdk = 30
         targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.1.0"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -78,6 +78,8 @@ dependencies {
     implementation(libs.protolayout.expression)
 
     implementation(libs.guava)
+
+    implementation(libs.gson)
 
     // Use to preview wear tiles in your own app
     debugImplementation(libs.tiles.renderer)

@@ -1,6 +1,7 @@
 [versions]
 agp = "8.1.1"
 calendar = "1.2.2"
+gson = "2.10.1"
 guava = "31.0.1-android"
 org-jetbrains-kotlin-android = "1.8.10"
 core-ktx = "1.12.0"
@@ -26,6 +27,7 @@ watchface-complications-data-source-ktx = "1.1.1"
 [libraries]
 calendar = { module = "com.github.persian-calendar:calendar", version.ref = "calendar" }
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
 play-services-wearable = { group = "com.google.android.gms", name = "play-services-wearable", version.ref = "play-services-wearable" }
 percentlayout = { group = "androidx.percentlayout", name = "percentlayout", version.ref = "percentlayout" }
