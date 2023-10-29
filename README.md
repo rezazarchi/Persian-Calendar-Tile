@@ -1,5 +1,8 @@
 # Persian-Calendar-Tile
 این پروژه جهت نمایش تایل تقویم هجری شمسی در ساعت های هوشمند مجهز به سیستم عامل Wear OS ساخته شده است.
+### تصاویر
+![Screenshot_20231029_210553](https://github.com/rezazarchi/Persian-Calendar-Tile/assets/8654398/095c234a-fdf2-42fd-a81f-bba38c09a180)
+![Screenshot_20231029_210350](https://github.com/rezazarchi/Persian-Calendar-Tile/assets/8654398/31e21c76-1a6f-45cf-b6fa-cb2467b2cc6c)
 ### نسخه سیستم عامل قابل پشتیبانی
 Wear OS 4
 ### دستگاه‌های قابل پشتیبانی
