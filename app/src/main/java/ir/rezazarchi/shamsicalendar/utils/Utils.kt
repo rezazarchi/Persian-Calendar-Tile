@@ -92,17 +92,9 @@ object Utils {
     }
 
     fun anyEventIsHoliday(events: Event): Boolean {
-        var isHoliday = false
-        events.persianCalendar.forEach {
-            isHoliday = it.holiday || isHoliday
-        }
-        events.hijriCalendar.forEach {
-            isHoliday = it.holiday || isHoliday
-        }
-        events.gregorianCalendar.forEach {
-            isHoliday = it.holiday || isHoliday
-        }
-        return isHoliday
+        return events.persianCalendar.any { it.holiday } ||
+                events.hijriCalendar.any { it.holiday } ||
+                events.gregorianCalendar.any { it.holiday }
     }
 
 }
