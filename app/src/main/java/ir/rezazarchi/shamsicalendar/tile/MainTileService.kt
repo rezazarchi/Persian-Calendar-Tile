@@ -17,10 +17,8 @@ import androidx.wear.tiles.TileBuilders.Tile
 import androidx.wear.tiles.TileService
 import com.google.common.util.concurrent.Futures
 import com.google.common.util.concurrent.ListenableFuture
-import ir.rezazarchi.shamsicalendar.utils.Utils.anyEventIsHoliday
 import ir.rezazarchi.shamsicalendar.utils.Utils.getCurrentDayColor
 import ir.rezazarchi.shamsicalendar.utils.Utils.getCurrentDayEvents
-import ir.rezazarchi.shamsicalendar.utils.Utils.getEventsDescription
 import ir.rezazarchi.shamsicalendar.utils.Utils.getFullJalaliDateString
 import java.lang.Integer.MAX_VALUE
 
@@ -47,7 +45,7 @@ class MainTileService : TileService() {
                             .setHeight(wrap())
                             .setHorizontalAlignment(HORIZONTAL_ALIGN_CENTER)
                             .apply {
-                                val hasAnyHoliday = anyEventIsHoliday(events)
+                                val hasAnyHoliday = events.hasAnyHoliday
                                 this.addContent(
                                     Text.Builder(applicationContext, getFullJalaliDateString())
                                         .setMaxLines(2)
@@ -55,7 +53,7 @@ class MainTileService : TileService() {
                                         .setColor(argb(getCurrentDayColor(hasAnyHoliday)))
                                         .build()
                                 )
-                                val eventsDescription = getEventsDescription(events)
+                                val eventsDescription = events.eventsDescription
                                 if (eventsDescription.isNotBlank()) {
                                     this.addContent(
                                         Text.Builder(applicationContext, eventsDescription)

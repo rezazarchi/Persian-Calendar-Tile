@@ -79,22 +79,4 @@ object Utils {
         )
     }
 
-    fun getEventsDescription(events: Event): String {
-        return listOf(
-            events.hijriCalendar,
-            events.persianCalendar,
-            events.gregorianCalendar
-        ).joinToString("\n") {
-            it.joinToString("، ") { event ->
-                event.title
-            }
-        }
-    }
-
-    fun anyEventIsHoliday(events: Event): Boolean {
-        return events.persianCalendar.any { it.holiday } ||
-                events.hijriCalendar.any { it.holiday } ||
-                events.gregorianCalendar.any { it.holiday }
-    }
-
 }

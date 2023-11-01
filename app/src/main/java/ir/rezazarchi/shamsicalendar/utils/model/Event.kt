@@ -9,4 +9,20 @@ data class Event(
     val gregorianCalendar: List<CalendarEvent>,
     @SerializedName("Hijri Calendar")
     val hijriCalendar: List<CalendarEvent>,
-)
+) {
+    val eventsDescription: String
+        get() {
+            return entries.joinToString("\n") {
+                it(this).joinToString("، ") { event ->
+                    event.title
+                }
+            }
+        }
+
+    val hasAnyHoliday: Boolean get() = entries.any { it(this).any { it.holiday } }
+
+    companion object {
+        private val entries =
+            listOf(Event::hijriCalendar, Event::persianCalendar, Event::gregorianCalendar)
+    }
+}
