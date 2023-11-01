@@ -47,11 +47,12 @@ class MainTileService : TileService() {
                             .setHeight(wrap())
                             .setHorizontalAlignment(HORIZONTAL_ALIGN_CENTER)
                             .apply {
+                                val hasAnyHoliday = anyEventIsHoliday(events)
                                 this.addContent(
                                     Text.Builder(applicationContext, getFullJalaliDateString())
                                         .setMaxLines(2)
                                         .setTypography(Typography.TYPOGRAPHY_DISPLAY3)
-                                        .setColor(argb(getCurrentDayColor(anyEventIsHoliday(events))))
+                                        .setColor(argb(getCurrentDayColor(hasAnyHoliday)))
                                         .build()
                                 )
                                 val eventsDescription = getEventsDescription(events)
@@ -59,15 +60,7 @@ class MainTileService : TileService() {
                                     this.addContent(
                                         Text.Builder(applicationContext, eventsDescription)
                                             .setTypography(Typography.TYPOGRAPHY_CAPTION3)
-                                            .setColor(
-                                                argb(
-                                                    getCurrentDayColor(
-                                                        anyEventIsHoliday(
-                                                            events
-                                                        )
-                                                    )
-                                                )
-                                            )
+                                            .setColor(argb(getCurrentDayColor(hasAnyHoliday)))
                                             .setMaxLines(MAX_VALUE)
                                             .setModifiers(
                                                 ModifiersBuilders.Modifiers.Builder().setPadding(
