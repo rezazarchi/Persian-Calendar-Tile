@@ -60,13 +60,7 @@ class MainTileService : TileService() {
                                         Text.Builder(applicationContext, eventsDescription)
                                             .setTypography(Typography.TYPOGRAPHY_CAPTION3)
                                             .setColor(
-                                                argb(
-                                                    getCurrentDayColor(
-                                                        anyEventIsHoliday(
-                                                            events
-                                                        )
-                                                    )
-                                                )
+                                                argb(getCurrentDayColor(anyEventIsHoliday(events)))
                                             )
                                             .setMaxLines(MAX_VALUE)
                                             .setModifiers(
@@ -76,15 +70,12 @@ class MainTileService : TileService() {
                                                         .setRtlAware(true)
                                                         .build()
                                                 ).build()
-                                            )
-                                            .build()
+                                            ).build()
                                     )
                                 }
-                            }
-                            .build()
+                            }.build()
                     )
-                )
-                .build()
+                ).build()
         )
     }
 
