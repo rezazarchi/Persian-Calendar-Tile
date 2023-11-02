@@ -88,7 +88,7 @@ object Utils {
             it.joinToString("، ") { event ->
                 event.title
             }
-        }
+        }.trim()
     }
 
     fun anyEventIsHoliday(events: Event): Boolean {
