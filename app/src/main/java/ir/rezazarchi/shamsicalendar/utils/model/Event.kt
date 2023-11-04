@@ -16,7 +16,7 @@ data class Event(
                 it(this).joinToString("، ") { event ->
                     event.title
                 }
-            }
+            }.trim()
         }
 
     val hasAnyHoliday: Boolean get() = entries.any { it(this).any { it.holiday } }
