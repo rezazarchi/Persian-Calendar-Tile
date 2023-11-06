@@ -51,20 +51,9 @@ android {
 
 dependencies {
 
-    implementation(libs.core.ktx)
     implementation(libs.play.services.wearable)
-    implementation(libs.percentlayout)
-    implementation(libs.legacy.support.v4)
-    implementation(libs.recyclerview)
     implementation(platform(libs.compose.bom))
-    implementation(libs.ui)
-    implementation(libs.ui.tooling.preview)
-    implementation(libs.compose.material)
-    implementation(libs.compose.foundation)
-    implementation(libs.lifecycle.runtime.ktx)
-    implementation(libs.activity.compose)
     implementation(libs.tiles)
-    implementation(libs.horologist.compose.tools)
     implementation(libs.horologist.tiles)
     implementation(libs.watchface.complications.data.source.ktx)
     implementation(libs.calendar)
