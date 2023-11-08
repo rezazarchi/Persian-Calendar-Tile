@@ -23,6 +23,7 @@ horologist-tiles = "0.1.8"
 tiles-renderer = "1.2.0"
 tiles-testing = "1.2.0"
 watchface-complications-data-source-ktx = "1.1.1"
+kotest = "5.7.2"
 
 [libraries]
 calendar = { module = "com.github.persian-calendar:calendar", version.ref = "calendar" }
@@ -52,10 +53,17 @@ tiles = { group = "androidx.wear.tiles", name = "tiles", version.ref = "tiles" }
 horologist-compose-tools = { group = "com.google.android.horologist", name = "horologist-compose-tools", version.ref = "horologist-compose-tools" }
 horologist-tiles = { group = "com.google.android.horologist", name = "horologist-tiles", version.ref = "horologist-tiles" }
 watchface-complications-data-source-ktx = { group = "androidx.wear.watchface", name = "watchface-complications-data-source-ktx", version.ref = "watchface-complications-data-source-ktx" }
+kotest-assertionsCore = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
+kotest-property = { module = "io.kotest:kotest-property", version.ref = "kotest" }
+kotest-runnerJUnit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
 
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "agp" }
 org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "org-jetbrains-kotlin-android" }
 
 [bundles]
-
+kotest = [
+    "kotest-assertionsCore",
+    "kotest-property",
+    "kotest-runnerJUnit5"
+]

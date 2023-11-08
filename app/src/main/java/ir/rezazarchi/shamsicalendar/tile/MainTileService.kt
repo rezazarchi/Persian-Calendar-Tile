@@ -67,15 +67,12 @@ class MainTileService : TileService() {
                                                         .setRtlAware(true)
                                                         .build()
                                                 ).build()
-                                            )
-                                            .build()
+                                            ).build()
                                     )
                                 }
-                            }
-                            .build()
+                            }.build()
                     )
-                )
-                .build()
+                ).build()
         )
     }
 
