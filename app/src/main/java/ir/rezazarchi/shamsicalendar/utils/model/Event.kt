@@ -1,7 +1,9 @@
 package ir.rezazarchi.shamsicalendar.utils.model
 
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 
+@Keep
 data class Event(
     @SerializedName("Persian Calendar")
     val persianCalendar: List<CalendarEvent>,

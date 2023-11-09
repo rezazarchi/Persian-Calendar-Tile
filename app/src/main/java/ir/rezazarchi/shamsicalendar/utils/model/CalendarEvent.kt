@@ -1,5 +1,8 @@
 package ir.rezazarchi.shamsicalendar.utils.model
 
+import androidx.annotation.Keep
+
+@Keep
 data class CalendarEvent(
     val day: Int,
     val holiday: Boolean,
