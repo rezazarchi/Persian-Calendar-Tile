@@ -8,6 +8,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import androidx.glance.unit.ColorProvider
 import ir.rezazarchi.shamsicalendar.utils.model.Event
+import java.time.DayOfWeek
+import java.time.LocalDate
 
 class CalendarTileStateHolder(fullJalaliDateString: String, event: Event) {
 
@@ -28,8 +30,10 @@ class CalendarTileStateHolder(fullJalaliDateString: String, event: Event) {
 
     val textColor by
     derivedStateOf {
-        ColorProvider(if (events.hasAnyHoliday) Color.Red else Color.White)
+        ColorProvider(if (events.hasAnyHoliday || todayIsFriday()) Color.Red else Color.White)
     }
+
+    private fun todayIsFriday() = LocalDate.now().dayOfWeek == DayOfWeek.FRIDAY
 
     val hasEvent by
     derivedStateOf {
