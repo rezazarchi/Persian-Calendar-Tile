@@ -58,30 +58,14 @@ android {
 
 dependencies {
 
-    implementation(libs.play.services.wearable)
     implementation(platform(libs.compose.bom))
-    implementation(libs.tiles)
-    implementation(libs.horologist.tiles)
-    implementation(libs.watchface.complications.data.source.ktx)
     implementation(libs.calendar)
-    // Use to utilize standard components and layouts in your tiles
-    implementation(libs.protolayout)
 
-    // Use to utilize components and layouts with Material Design in your tiles
-    implementation(libs.protolayout.material)
-
-    // Use to include dynamic expressions in your tiles
-    implementation(libs.protolayout.expression)
-
-    implementation(libs.guava)
+    // Compose for Wear-Tiles support
+    implementation(libs.glance.wear.tiles)
 
     implementation(libs.gson)
 
-    // Use to preview wear tiles in your own app
-    debugImplementation(libs.tiles.renderer)
-
-    // Use to fetch tiles from a tile provider in your tests
-    testImplementation(libs.tiles.testing)
     androidTestImplementation(platform(libs.compose.bom))
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)

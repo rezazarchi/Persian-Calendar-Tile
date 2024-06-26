@@ -1,38 +1,20 @@
 [versions]
-agp = "8.4.0"
+agp = "8.4.1"
 calendar = "1.3.0"
 gson = "2.10.1"
-guava = "31.0.1-android"
 org-jetbrains-kotlin-android = "1.9.10"
-play-services-wearable = "18.1.0"
-protolayout-expression = "1.1.0"
-protolayout-material = "1.1.0"
-protolayout = "1.1.0"
 compose-bom = "2024.05.00"
-tiles = "1.3.0"
-horologist-tiles = "0.1.8"
-tiles-renderer = "1.3.0"
-tiles-testing = "1.3.0"
-watchface-complications-data-source-ktx = "1.2.1"
+glance-wear-tiles = "1.0.0-alpha05"
 kotest = "5.7.2"
 
 [libraries]
 calendar = { module = "com.github.persian-calendar:calendar", version.ref = "calendar" }
+glance-wear-tiles = { module = "androidx.glance:glance-wear-tiles", version.ref = "glance-wear-tiles" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
-guava = { module = "com.google.guava:guava", version.ref = "guava" }
-play-services-wearable = { group = "com.google.android.gms", name = "play-services-wearable", version.ref = "play-services-wearable" }
-protolayout-expression = { module = "androidx.wear.protolayout:protolayout-expression", version.ref = "protolayout-expression" }
-protolayout-material = { module = "androidx.wear.protolayout:protolayout-material", version.ref = "protolayout-material" }
-protolayout = { module = "androidx.wear.protolayout:protolayout", version.ref = "protolayout" }
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
-tiles-renderer = { module = "androidx.wear.tiles:tiles-renderer", version.ref = "tiles-renderer" }
-tiles-testing = { module = "androidx.wear.tiles:tiles-testing", version.ref = "tiles-testing" }
 ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
-tiles = { group = "androidx.wear.tiles", name = "tiles", version.ref = "tiles" }
-horologist-tiles = { group = "com.google.android.horologist", name = "horologist-tiles", version.ref = "horologist-tiles" }
-watchface-complications-data-source-ktx = { group = "androidx.wear.watchface", name = "watchface-complications-data-source-ktx", version.ref = "watchface-complications-data-source-ktx" }
 kotest-assertionsCore = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
 kotest-property = { module = "io.kotest:kotest-property", version.ref = "kotest" }
 kotest-runnerJUnit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
