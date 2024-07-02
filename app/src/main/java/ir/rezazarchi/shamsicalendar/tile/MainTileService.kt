@@ -14,14 +14,24 @@ import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import androidx.glance.wear.tiles.GlanceTileService
 import androidx.wear.tiles.EventBuilders
+import dagger.hilt.android.AndroidEntryPoint
+import ir.rezazarchi.shamsicalendar.di.FullJalaliDate
 import ir.rezazarchi.shamsicalendar.tile.CalendarTileStateHolder.Companion.rememberCalendarTileState
-import ir.rezazarchi.shamsicalendar.utils.Utils.getCurrentDayEvents
-import ir.rezazarchi.shamsicalendar.utils.Utils.getFullJalaliDateString
+import ir.rezazarchi.shamsicalendar.utils.model.Event
+import javax.inject.Inject
 
 /**
  * Skeleton for a tile with no images.
  */
+@AndroidEntryPoint
 class MainTileService : GlanceTileService() {
+
+    @Inject
+    @FullJalaliDate
+    lateinit var fullJalaliDateString: String
+
+    @Inject
+    lateinit var event: Event
 
     override fun onTileEnterEvent(requestParams: EventBuilders.TileEnterEvent) {
         getUpdater(this).requestUpdate(MainTileService::class.java)
@@ -29,10 +39,7 @@ class MainTileService : GlanceTileService() {
 
     @Composable
     override fun Content() {
-        val calendarTileState = rememberCalendarTileState(
-            getFullJalaliDateString(),
-            getCurrentDayEvents(applicationContext)
-        )
+        val calendarTileState = rememberCalendarTileState(fullJalaliDateString, event)
         CalendarTile(state = calendarTileState)
     }
 

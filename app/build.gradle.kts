@@ -2,6 +2,8 @@
 plugins {
     alias(libs.plugins.com.android.application)
     alias(libs.plugins.org.jetbrains.kotlin.android)
+    id("dagger.hilt.android.plugin")
+    kotlin("kapt")
 }
 
 android {
@@ -65,6 +67,9 @@ dependencies {
     implementation(libs.glance.wear.tiles)
 
     implementation(libs.gson)
+
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
 
     androidTestImplementation(platform(libs.compose.bom))
     androidTestImplementation(libs.ui.test.junit4)
