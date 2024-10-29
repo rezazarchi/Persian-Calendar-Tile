@@ -1,11 +1,12 @@
 [versions]
-agp = "8.4.1"
+agp = "8.7.1"
 calendar = "1.3.0"
 gson = "2.10.1"
-org-jetbrains-kotlin-android = "1.9.10"
-compose-bom = "2024.05.00"
+org-jetbrains-kotlin-android = "2.0.21"
+compose-bom = "2024.10.00"
 glance-wear-tiles = "1.0.0-alpha05"
 kotest = "5.7.2"
+koin = "4.0.0"
 
 [libraries]
 calendar = { module = "com.github.persian-calendar:calendar", version.ref = "calendar" }
@@ -18,10 +19,14 @@ ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 kotest-assertionsCore = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
 kotest-property = { module = "io.kotest:kotest-property", version.ref = "kotest" }
 kotest-runnerJUnit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
+koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koin" }
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
 
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "agp" }
 org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "org-jetbrains-kotlin-android" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "org-jetbrains-kotlin-android" }
 
 [bundles]
 kotest = [
