@@ -1,16 +1,19 @@
 package ir.rezazarchi.shamsicalendar.tile
 
-import androidx.wear.protolayout.ColorBuilders.argb
-import androidx.wear.protolayout.DimensionBuilders
 import androidx.wear.protolayout.DimensionBuilders.expand
 import androidx.wear.protolayout.DimensionBuilders.wrap
 import androidx.wear.protolayout.LayoutElementBuilders
 import androidx.wear.protolayout.LayoutElementBuilders.HORIZONTAL_ALIGN_CENTER
-import androidx.wear.protolayout.ModifiersBuilders
 import androidx.wear.protolayout.ResourceBuilders.Resources
 import androidx.wear.protolayout.TimelineBuilders.Timeline
-import androidx.wear.protolayout.material.Text
-import androidx.wear.protolayout.material.Typography
+import androidx.wear.protolayout.material3.Typography
+import androidx.wear.protolayout.material3.materialScope
+import androidx.wear.protolayout.material3.primaryLayout
+import androidx.wear.protolayout.material3.text
+import androidx.wear.protolayout.modifiers.LayoutModifier
+import androidx.wear.protolayout.modifiers.padding
+import androidx.wear.protolayout.types.LayoutColor
+import androidx.wear.protolayout.types.layoutString
 import androidx.wear.tiles.EventBuilders
 import androidx.wear.tiles.RequestBuilders
 import androidx.wear.tiles.TileBuilders.Tile
@@ -40,37 +43,45 @@ class MainTileService : TileService() {
                 .setResourcesVersion(RESOURCES_VERSION)
                 .setTileTimeline(
                     Timeline.fromLayoutElement(
-                        LayoutElementBuilders.Column.Builder()
-                            .setWidth(expand())
-                            .setHeight(wrap())
-                            .setHorizontalAlignment(HORIZONTAL_ALIGN_CENTER)
-                            .apply {
-                                val hasAnyHoliday = events.hasAnyHoliday
-                                this.addContent(
-                                    Text.Builder(applicationContext, getFullJalaliDateString())
-                                        .setMaxLines(2)
-                                        .setTypography(Typography.TYPOGRAPHY_DISPLAY3)
-                                        .setColor(argb(getCurrentDayColor(hasAnyHoliday)))
-                                        .build()
-                                )
-                                val eventsDescription = events.eventsDescription
-                                if (eventsDescription.isNotBlank()) {
-                                    this.addContent(
-                                        Text.Builder(applicationContext, eventsDescription)
-                                            .setTypography(Typography.TYPOGRAPHY_CAPTION3)
-                                            .setColor(argb(getCurrentDayColor(hasAnyHoliday)))
-                                            .setMaxLines(MAX_VALUE)
-                                            .setModifiers(
-                                                ModifiersBuilders.Modifiers.Builder().setPadding(
-                                                    ModifiersBuilders.Padding.Builder()
-                                                        .setAll(DimensionBuilders.dp(16f))
-                                                        .setRtlAware(true)
-                                                        .build()
-                                                ).build()
-                                            ).build()
+                        materialScope(
+                            applicationContext,
+                            deviceConfiguration = requestParams.deviceConfiguration,
+                        ) {
+                            val hasAnyHoliday = events.hasAnyHoliday
+                            primaryLayout(
+                                titleSlot = {
+                                    text(
+                                        getFullJalaliDateString().layoutString,
+                                        maxLines = 2,
+                                        typography = Typography.DISPLAY_SMALL,
+                                        color = LayoutColor(
+                                            getCurrentDayColor(hasAnyHoliday)
+                                        ),
                                     )
+                                },
+                                mainSlot = {
+                                    LayoutElementBuilders.Column.Builder()
+                                        .setWidth(expand())
+                                        .setHeight(wrap())
+                                        .setHorizontalAlignment(HORIZONTAL_ALIGN_CENTER).apply {
+                                            val eventsDescription = events.eventsDescription
+                                            if (eventsDescription.isNotBlank()) {
+                                                this.addContent(
+                                                    text(
+                                                        eventsDescription.layoutString,
+                                                        typography = Typography.BODY_EXTRA_SMALL,
+                                                        color = LayoutColor(
+                                                            getCurrentDayColor(hasAnyHoliday)
+                                                        ),
+                                                        maxLines = MAX_VALUE,
+                                                        modifier = LayoutModifier.padding(all = 16f)
+                                                    )
+                                                )
+                                            }
+                                        }.build()
                                 }
-                            }.build()
+                            )
+                        }
                     )
                 ).build()
         )

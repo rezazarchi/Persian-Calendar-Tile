@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "ir.rezazarchi.shamsicalendar"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "ir.rezazarchi.shamsicalendar"
@@ -68,7 +68,7 @@ dependencies {
     implementation(libs.protolayout)
 
     // Use to utilize components and layouts with Material Design in your tiles
-    implementation(libs.protolayout.material)
+    implementation(libs.protolayout.material3)
 
     // Use to include dynamic expressions in your tiles
     implementation(libs.protolayout.expression)
